@@ -1,20 +1,20 @@
 import Logo from "../Assets/Logo.svg";
+import name from "../Assets/name.svg";
 import "animate.css";
 import { styled } from "@mui/system";
+import { useState } from "react";
 
 const PlaceLogo = styled("img")({
   backgroundColor: "transparent",
   height: 100,
   width: 150,
 });
-const PlaceName = styled("div")({
+const PlaceLogo1 = styled("img")({
   backgroundColor: "transparent",
-  color: "white",
+
   height: 100,
-  width: 150,
-  paddingLeft: 50,
-  paddingTop: 50,
-  fontSize: "3rem",
+  width: 400,
+  paddingLeft: -50,
 });
 const LoadingBackground = styled("div")({
   backgroundColor: "black",
@@ -30,9 +30,9 @@ const Loading: React.FC = () => {
     <LoadingBackground>
       <PlaceLogo
         src={Logo}
-        className="animate__animated animate__fadeInLeft animate__delay-3s animate__infinite	infinite "
+        className="animate__animated animate__fadeInLeft  animate__infinite	infinite "
       />
-      <PlaceName>SENSIBULL</PlaceName>
+      <PlaceLogo1 src={name} className="animate__animated animate__fadeIn" />
     </LoadingBackground>
   );
 };

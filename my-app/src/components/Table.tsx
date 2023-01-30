@@ -5,9 +5,10 @@ import Back from "./back.png";
 
 import "./Table.css";
 import { Tableprops } from "./Table.types";
+import Loading from "./Loading";
 import { styled } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Search } from "@mui/icons-material";
+import { Scale, Search } from "@mui/icons-material";
 
 const PlaceTableHead = styled("h1")({
   backgroundColor: "transparent",
@@ -24,7 +25,7 @@ const PlaceTableHead = styled("h1")({
 });
 
 const SearchTable = styled("input")({
-  backgroundColor: "#fd7e14",
+  backgroundColor: "#ff8f33",
   height: 45,
   width: 300,
   color: " #000000",
@@ -33,6 +34,7 @@ const SearchTable = styled("input")({
   opacity: 1,
   paddingLeft: 19,
   fontSize: "1.1rem",
+  ":hover": { Scale: 1.2 },
 });
 const BackButton = styled("img")({
   backgroundColor: "#fd7e14",
@@ -56,6 +58,7 @@ const Table: React.FC<Tableprops> = ({
   autoHightProp,
 }) => {
   const [query, setQuery] = useState("");
+
   // const [showSearch, setShowSearch] = useState(showSearchProp);
 
   const search = (row: any) => {
@@ -94,7 +97,11 @@ const Table: React.FC<Tableprops> = ({
               onChange={onChangeHandle}
             />
             <Search
-              style={{ marginLeft: "-50px", marginTop: "8px", opacity: ".5" }}
+              style={{
+                marginLeft: "-50px",
+                marginTop: "8px",
+                opacity: ".5",
+              }}
             />
           </>
         ) : (

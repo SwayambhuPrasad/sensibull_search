@@ -1,5 +1,5 @@
 import { styled } from "@mui/system";
-import Logo from "../Assets/Logo.svg";
+import Logo from "../Assets/LogoName.svg";
 
 import React from "react";
 
@@ -21,8 +21,8 @@ const ContainerLogoandText = styled("div")({
 });
 const ContainerLogo = styled("img")({
   backgroundColor: "transparent",
-  height: 20,
-  width: 35,
+  height: 30,
+  width: 140,
 });
 
 const NavBar: React.FC = () => {
@@ -30,7 +30,6 @@ const NavBar: React.FC = () => {
     <Container>
       <ContainerLogoandText>
         <ContainerLogo src={Logo} />
-        <div>SENSIBULL</div>
       </ContainerLogoandText>
     </Container>
   );

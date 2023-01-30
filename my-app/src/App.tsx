@@ -32,6 +32,7 @@ function App() {
   const [quotes, setQuotes] = useState<[]>([]);
   const [navigate, setNavigate] = useState(true);
   const [name, setName] = useState("");
+  const [loadingScreen, setLoadingScreen] = useState(true);
 
   const CSVToJSON = (data: any, delimiter = ",") => {
     const titles = data.slice(0, data.indexOf("\n")).split(delimiter);
@@ -65,7 +66,9 @@ function App() {
   const onBackClickHandel = (value: any) => {
     setNavigate(value);
   };
-
+  setTimeout(() => {
+    setLoadingScreen(false);
+  }, 4000);
   useEffect(() => {
     axios.get(instrumentAPI).then(function (response) {
       setdata(CSVToJSON(response.data));
@@ -92,36 +95,41 @@ function App() {
     }
   }, [quotes]);
   return (
-    <div
-      style={{
-        width: "100vw",
-        backgroundColor: "#b1d7f5",
-        overflowX: "hidden",
-      }}
-    >
-      <NavBar />
-      {navigate ? (
-        <Table
-          name="Stocks page"
-          col={colInstrument}
-          row={row}
-          showSearchProp={true}
-          onCellClickEvent={onCellClickHandel}
-          autoHightProp={false}
-        />
+    <>
+      {loadingScreen ? (
+        <Loading />
       ) : (
-        <Table
-          name={"Quotes for " + name}
-          col={colQuotes}
-          row={quotesrow}
-          showSearchProp={false}
-          autoHightProp={true}
-          onBackClickEvent={onBackClickHandel}
-          // onCellClick={onCellClickHandel}
-        />
+        <div
+          style={{
+            width: "100vw",
+            backgroundColor: "#b1d7f5",
+          }}
+        >
+          <NavBar />
+          {navigate ? (
+            <Table
+              name="Stocks"
+              col={colInstrument}
+              row={row}
+              showSearchProp={true}
+              onCellClickEvent={onCellClickHandel}
+              autoHightProp={false}
+            />
+          ) : (
+            <Table
+              name={"Quotes for " + name}
+              col={colQuotes}
+              row={quotesrow}
+              showSearchProp={false}
+              autoHightProp={true}
+              onBackClickEvent={onBackClickHandel}
+              // onCellClick={onCellClickHandel}
+            />
+          )}
+          <Footer />
+        </div>
       )}
-      <Footer />
-    </div>
+    </>
   );
 }
 
