@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+.MuiContainer-root {
+  background-color: #b1d7f5;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 10px;
+}
+
+.MuiDataGrid-main {
+  background-color: #ffffff;
+  border-radius: 5px;
+  color: black;
+}
+.MuiDataGrid-sortIcon {
+  background-color: #fd7e14;
+  border-radius: 50%;
+}
+.MuiDataGrid-menuIcon > button {
+  color: #fd7e14;
+}
+.MuiDataGrid-menu {
+  border-radius: 3px;
+}
+.MuiDataGrid-menuList {
+  background-color: #fd7e14;
+  color: black;
+}
